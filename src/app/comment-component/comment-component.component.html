@@ -1,0 +1,31 @@
+<div><div  class="alert alert-success" ngModel name="thanksComment" #thanksComment >         
+  <!-- / (click)="valueChanged()" -->
+                     
+    <div style="float:right">
+        
+       <fa-icon [icon]="heartClass"  
+       size="2x" (click)="heartUpdate(gratitudeComment)" 
+       style="color: deeppink" ></fa-icon>
+   
+
+       <!-- <span >&nbsp;{{gratitudeComment.liked}}</span> -->
+       <fa-icon [icon]="starClass"  size="2x" (click)="starUpdate(gratitudeComment)" style="color: orange"></fa-icon>
+       <span >&nbsp;</span>
+   </div>
+ {{commentIndex}})<span >&nbsp;</span> {{gratitudeComment.content}}  -  Thank you.Thank you.Thank you.
+
+ 
+    <!-- <div style="float:right">
+       <fa-icon [icon]="faEdit" (click)="editGratitideText(gratitudeComment)"  ></fa-icon>
+       <span >&nbsp;</span> 
+       <fa-icon [icon]="faTrashAlt" (click)="deleteGratitideText(gratitudeComment)"  ></fa-icon>
+   </div>  -->
+ 
+</div>
+<!-- <div>
+<div class="alert alert-info">Inner one </div>
+<div class="alert alert-info">Inner one </div>
+<div class="alert alert-info">Inner one </div>
+<div class="alert alert-info">Inner one </div>
+</div> -->
+</div>

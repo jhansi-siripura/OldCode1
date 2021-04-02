@@ -1,0 +1,24 @@
+<div class="card card-primary">
+    <div class="card-heading">Add Focus Areas
+      <fa-icon [icon]="faPlus" (click)="showAddType()"></fa-icon>
+    </div>
+    <div class="card-body">
+       <div *ngIf="addType">
+        <form class="form-inline">
+          <textarea ngModel name="typeText" #typeText class="form-control" rows="3" cols="400" id="typeId" 
+            placeholder="Add {{type}}s here "
+            (keyup.enter)="addData(typeText.value)"></textarea>
+        </form>
+      </div>
+  
+  
+      <br>
+  
+      <div *ngFor="let t of (typeList |async);index as i">
+        <div>
+          <goal-card-li [typeText]="t" [typeIndex]="i+1" [types]="types"></goal-card-li>
+        </div>
+      </div>
+     
+  
+    </div>

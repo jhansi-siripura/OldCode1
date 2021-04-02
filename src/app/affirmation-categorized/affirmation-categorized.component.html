@@ -1,0 +1,26 @@
+<div class="card card-primary" >
+    <div class="card-heading">Add affirmations for {{category}}  
+      <fa-icon [icon]="faPlus" (click)="showAddAffirm()" ></fa-icon></div>
+    <div class="card-body">
+      <!-- <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+      <div *ngIf="addAffirm">
+      <form class="form-inline">
+          <textarea ngModel name="affirmText" #affirmText class="form-control" 
+         rows="3" cols="400" id="affirmId" placeholder="Add affirmations here "
+          (keyup.enter)="addAffirmation(affirmText.value,category)"></textarea>
+      </form>
+      </div>
+  
+ 
+      <br>
+      
+      <!-- {{affirmList|async|json}} -->
+       
+      <affirmation-text *ngFor="let aff of (affirmList |async);index as i" [affirmText]="aff" [affIndex]="i+1"></affirmation-text>
+     
+   
+    </div>
+  </div>
+
+ 

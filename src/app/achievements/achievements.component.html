@@ -1,0 +1,7 @@
+  <div *ngFor="let a of achievementList|async;index as i;"> 
+    <div  class="alert alert-success"> <h5>{{i+1}} . On Date {{a.date}}</h5>
+        <p style="color: blue"> {{a.content}}  -  Thank you.Thank you.Thank you.
+        <fa-icon [icon]="faTrophy" style="color: gold;float: right;" size="3x" ></fa-icon>
+     </p> 
+     </div>
+  </div>

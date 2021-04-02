@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-3 ">
+          <input type="text" #cPrice name="currPrice" id="currPrice" placeholder="Please enter current price">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3 ">
+          <button class="btn btn-primary" style="background-color:green;border-color: green"
+            (click)="getAnswer(cPrice)">ANSWER from Archangel Ariel</button>
+        </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col-sm-4 ">
+          <br>
+          <div *ngIf="currentPrice">Current price {{currentPrice}} ...</div>
+          <div *ngIf="tradeDirection==='B'" style="background-color:green;border-color: green">
+            <br><br>
+            <h3 style="color:white;text-align: center">{{tradeType}} Order</h3>
+            <br>
+            <div *ngIf="bestTradePrice">
+                <h4 style="color:white;text-align: center">BEST BUY @ {{ bestTradePrice}} with SL {{calcBestTradeSL}}</h4>
+            </div>
+            <h5 style="color:white;text-align: center">BUY @ {{ tradePrice}} with SL {{calcSL}}</h5>
+            <h6 style="color:black;text-align: center"> SL units : {{sl}}</h6>
+           
+            <br><br>
+          </div>
+
+ 
+          <div *ngIf="tradeDirection==='S'" style="background-color:red;border-color: red">
+            <br><br>
+            <h3 style="color:white;text-align: center">{{tradeType}} Order</h3>
+            <div *ngIf="bestTradePrice">
+                <h4 style="color:white;text-align: center">BEST SELL @ {{ bestTradePrice}} with SL {{calcBestTradeSL}}</h4>
+            </div>
+            <br>
+            <h5 style="color:white;text-align: center">SELL @ {{ tradePrice}} with SL {{calcSL}}</h5>
+            <h6 style="color:black;text-align: center"> SL units : {{sl}}</h6>
+            <br><br>
+          </div>
+
+
+          <div *ngIf="tradeDirection==='N'" style="background-color:blue;border-color: blue">
+              <br><br>
+              <h2 style="color:white;text-align: center">Ask again after </h2>
+              <h5 style="color:white;text-align: center"> {{timeStop | date: 'dd-MM-yyyy hh:mm aa'}} </h5>
+              <br><br>
+            </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>

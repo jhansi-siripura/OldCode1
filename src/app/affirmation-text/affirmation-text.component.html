@@ -1,0 +1,16 @@
+<div  class="alert alert-success" >{{affIndex}}.&nbsp;{{affirmText.text}}
+<!-- 
+    {{affirmText|json}}
+    {{affirmText['key']}} -->
+
+      <div style="float:right">
+       <fa-icon [icon]="faEdit" (click)="editAffirmation(affirmText)" ></fa-icon>
+       <span >&nbsp;</span> 
+       <fa-icon [icon]="faTrashAlt" (click)="deleteAffirmation(affirmText)" ></fa-icon>
+      
+       
+
+   </div>  
+</div>
+
+ 

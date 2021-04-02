@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <br>
+      <br>
+
+      <!-- <div class="row">
+          <div class="col-sm-3 ">
+            <input type="text" #cPrice name="currPrice" id="currPrice" placeholder="Please enter current price">
+  
+          </div>
+        </div> -->
+
+      <div class="row">
+        <div class="col-sm-3 ">
+          <button class="btn btn-primary" style="background-color:rgb(138, 6, 138);border-color: violet"
+            (click)="getAnswer()">ANSWER from Divine</button>
+        </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col-sm-3 ">
+          <br>
+          <div *ngIf="answer==='Y'" style="background-color:green;border-color: green">
+            <br><br>
+            <h1 style="color:white;text-align: center">YES</h1>
+            <br><br>
+          </div>
+
+          <div *ngIf="answer==='N'" style="background-color:red;border-color: red">
+            <br><br>
+            <h1 style="color:white;text-align: center">NO</h1>
+            <br><br>
+          </div>
+          <div style="text-align: center">{{date | date: 'dd-MMM-yyyy hh:mm:ss aa' }}</div>
+        </div>
+      
+      </div>
+    </div>

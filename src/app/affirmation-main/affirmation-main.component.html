@@ -1,0 +1,22 @@
+<mat-tab-group>
+        <mat-tab *ngFor="let c of aCategories; index as i;" label="{{c}}" >
+             <!-- Content for {{c}}  -->
+                <affirmation-categorized [category]="c"></affirmation-categorized>
+        </mat-tab>
+ </mat-tab-group>
+
+
+<!-- <ul class="nav nav-tabs list-inline">
+    <li *ngFor="let c of aCategories; index as i;">
+      <button class="btn btn-primary" (click)="clickTab(i)">{{c}}</button>&nbsp;&nbsp;
+      
+      </li>
+      <li>
+          <button class="btn"  >Add a new Category</button>
+       </li>
+
+</ul> 
+  <affirmation-categorized [category]="aCategories[tabIndex]"></affirmation-categorized>
+-->
+
+

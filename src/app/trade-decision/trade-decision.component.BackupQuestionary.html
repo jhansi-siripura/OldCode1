@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <br>
+      <br>
+      <div *ngIf="!makeNewDecision">
+         <form #tdForm="ngForm" (ngSubmit)="decide(tdForm.value);makeNewDecision=true" > 
+        <div>
+          <p>1. What is your mood right NOW ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="example-full-width">
+              <input matInput name="mood" ngModel >
+            </mat-form-field>
+
+          </p>
+        </div>
+       
+        <div>
+          <p>2. Is today Inventory Day ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-checkbox name="isInventoryDay" ngModel>
+            </mat-checkbox>
+          </p>
+        </div>
+        <div>
+          <p>3. Is today Friday ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-checkbox name="isFriday" ngModel>
+            </mat-checkbox>
+          </p>
+        </div>
+        <div>
+          <p>4. Is today Holiday(Indain /US or anything important) ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-checkbox name="isHoliday" ngModel>
+            </mat-checkbox>
+          </p>
+        </div>
+        <div>
+          <p>5. What is the trend right NOW ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-group name="trend" ngModel>
+              <mat-radio-button value="B">Buyers</mat-radio-button>
+              <mat-radio-button value="N">Neutral</mat-radio-button>
+              <mat-radio-button value="S">Sellers</mat-radio-button>
+            </mat-radio-group>
+          </p>
+        </div>
+        <div>
+          <p>6. What is your grandmom telling ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-group name="grandmaAdvices" ngModel>
+              <mat-radio-button value="B">Buy</mat-radio-button>
+              <mat-radio-button value="N">Neutral</mat-radio-button>
+              <mat-radio-button value="S">Sell</mat-radio-button>
+            </mat-radio-group>
+          </p>
+        </div>
+        <div>
+          <p>7. What is your expected minimum profit from this trade ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="example-full-width">
+              <input matInput name="expMinProfit" ngModel>
+            </mat-form-field>
+          </p>
+        </div>
+        <div>
+          <p>8. How many MEGAs you want to trade ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="example-full-width">
+              <input matInput name="megaUnits" ngModel>
+            </mat-form-field>
+          </p>
+        </div>
+        <div>
+          <p>9.How many MINIs you want to trade ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="example-full-width">
+              <input matInput name="miniUnits" ngModel>
+            </mat-form-field>
+          </p>
+        </div>
+        <div>
+          <p>10. What is current price in rupees ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="example-full-width">
+              <input matInput name="currentPrice" ngModel>
+            </mat-form-field>
+          </p>
+        </div>
+        <div>
+          <p>11. What is the Dollar trend right NOW ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-group name="dollarTrend" ngModel>
+              <mat-radio-button value="B">Buyers</mat-radio-button>
+              <mat-radio-button value="N">Neutral</mat-radio-button>
+              <mat-radio-button value="S">Sellers</mat-radio-button>
+            </mat-radio-group>
+          </p>
+        </div>
+        <button class="btn btn-primary" >Decide</button>
+     
+     
+     
+      </form> 
+      </div>
+
+
+      <div *ngIf="makeNewDecision">
+        {{suggestion}}
+        <br>
+        <button class="btn btn-primary" (click)="makeNewDecision=false">Make New Decision</button>
+      </div>
+
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>

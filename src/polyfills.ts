@@ -78,6 +78,8 @@
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
+//import "../node_modules/angular-font-awesome/dist/angular-font-awesome.js";
+//import "../node_modules/angular-font-awesome/dist/angular-font-awesome.es5.js"
 
 
 /***************************************************************************************************

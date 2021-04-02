@@ -1,0 +1,22 @@
+<!-- <div  class="alert alert-success" *ngIf="!editTypePanel" > -->
+    <div  class="alert alert-success" >
+        <span>
+              
+          {{typeIndex}}. &nbsp;{{typeText.text}}
+      
+      
+      
+            <div style="float:right">
+             <fa-icon [icon]="faEdit" (click)="editTypePanel=true" ></fa-icon>
+             <span >&nbsp;</span> 
+             <fa-icon [icon]="faTrashAlt" (click)="deleteType(typeText)" ></fa-icon>
+             </div>  
+            </span>
+      </div>
+  
+               <div *ngIf="editTypePanel">
+                   <textarea ngModel name="editTypeText" #editTypeText class="form-control" 
+                     rows="2" cols="400" id="editTypeId" value="{{typeText.text}}"
+                      (keyup.enter)="editType(editTypeText.value,typeText);editTypePanel=false"></textarea>
+                     <br>
+                </div>

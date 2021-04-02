@@ -1,0 +1,47 @@
+<div class="card card-primary">
+  <div class="card-heading">Add Habits
+    <fa-icon [icon]="faPlus" (click)="showAddType()"></fa-icon>
+  </div>
+  <div class="card-body" *ngIf="addType">
+    <div >
+      <form class="form-inline">
+        <textarea ngModel name="typeText" #typeText class="form-control" rows="3" cols="400" id="typeId"
+          placeholder="Add {{type}}s here " (keyup.enter)="addHabit(typeText.value)"></textarea>
+      </form>
+    </div>
+    <br>
+
+    <!-- <div *ngFor="let t of (habitsList |async);index as i">
+        <div>
+          <goal-card-li [typeText]="t" [typeIndex]="i+1" [types]="types"></goal-card-li>
+        </div>
+      </div> -->
+
+  </div>
+
+  <div>
+    <div class="card-heading">Track Habits
+      <fa-icon [icon]="faPlus" (click)="trackHabits=!trackHabits"></fa-icon>
+    </div>
+    <ul *ngIf="trackHabits">
+      <li *ngFor="let h of (habitsList |async)">
+        <input type="checkbox" name="" id="">
+        {{h.text}}
+      </li>
+    </ul>
+    <table border="1">
+      <thead>
+        <th> Habit</th>
+        <th *ngFor="let d of daysList"> D{{d}}</th>
+      </thead>
+      <tr *ngFor="let h of (habitsList |async)">
+        <td>{{h.text}}</td>
+        <td *ngFor="let d of daysList">
+          <!-- <div *ngIf="d%2==0" style="text-align: center;color: green">X</div> -->
+          <fa-icon [icon]="heartClass" style="color: green;text-align: center"></fa-icon>
+
+        </td>
+      </tr>
+    </table>
+
+  </div>

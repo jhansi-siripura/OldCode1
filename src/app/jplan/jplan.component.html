@@ -1,0 +1,100 @@
+<!-- <p>
+ {{tradeArray | json}}
+</p> -->
+<div class="container">
+  <p>Initial Funds:
+    <input type="text" [(ngModel)]="initFunds">
+  </p>
+  <p>Cost per unit :
+    <input type="text" [(ngModel)]="unitCost">
+  </p>
+  <button *ngIf="!showTable" class="btn btn-primary" (click)="startTrade();showTable=true">Start Trade</button>
+  <button *ngIf="showTable" class="btn btn-primary" (click)="nextTrade(tradeArray[tradeArray.length-1].fFunds,tradeArray[tradeArray.length-1].level)">
+    Next Trade</button>
+
+  <div *ngIf="showTable">
+
+    <table class="table table-bordered" style="width: 30%;">
+      <tr>
+        <td>Funds</td>
+        <td style="background-color: green;color:floralwhite;">
+          {{tradeArray[tradeArray.length-1].iFunds | currency:"INR"}}
+        </td>
+      </tr>
+      <tr>
+        <td>Units</td>
+        <td style="background-color: green;color:floralwhite;">
+          {{tradeArray[tradeArray.length-1].megaUnits| number:'1.0-1'}}
+        </td>
+      </tr>
+      <tr>
+        <td>Points</td>
+        <td style="background-color: green;color:floralwhite;">
+          {{tradeArray[tradeArray.length-1].points}}
+        </td>
+      </tr>
+      <tr>
+        <td>TargetProfit</td>
+        <td style="background-color: green;color:floralwhite;">
+          {{tradeArray[tradeArray.length-1].tProfit | currency:"INR"}}
+        </td>
+      </tr>
+      <tr>
+          <td>Level</td>
+          <td style="background-color: green;color:floralwhite;">
+            {{tradeArray[tradeArray.length-1].level}}
+          </td>
+        </tr>
+        <tr>
+            <td>Trade Number</td>
+            <td style="background-color: green;color:floralwhite;">
+              {{tradeArray.length}}
+            </td>
+          </tr>
+
+          <tr>
+              <td>Final Funds</td>
+              <td style="background-color: green;color:floralwhite;">
+                {{tradeArray[tradeArray.length-1].fFunds | currency:"INR"}}
+              </td>
+            </tr>
+
+          <tr>
+              <td>Enjoyed Profit Till Date</td>
+              <td style="background-color: green;color:floralwhite;">
+                {{enjoyedProfitTillDate | currency:"INR"}}
+              </td>
+            </tr>
+
+         
+    </table>
+<br>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Trade</th>
+          <th>Initial Funds</th>
+          <th>MEGA Units To Trade</th>
+          <th>Points to earn</th>
+          <th>Target Profit</th>
+          <th>Take Profit</th>
+          <th>Final Funds</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of tradeArray; index as i ;">
+          <td>Trade {{i+1}}</td>
+          <td>{{t.iFunds| currency:"INR"}}</td>
+          <td>{{t.megaUnits | number:'1.0-1'}}</td>
+          <td>{{t.points}}</td>
+          <td>{{t.tProfit| currency:"INR"}}</td>
+          <td>{{t.takeProfit | currency:"INR"}}</td>
+          <td>{{t.fFunds | currency:"INR"}}</td>
+          <td>{{t.level}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

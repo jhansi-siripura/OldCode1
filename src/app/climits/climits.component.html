@@ -1,0 +1,40 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div>
+          IPv4: 103.117.237.12
+          IPv4: 103.117.237.13(mocha)
+        <br><br>
+        <h3>What is previous closing price ?</h3>
+        <input type="text" name="cPrice" #cPrice ngModel (keyup.enter)="addCprice(cPrice.value);showlevel=true">
+      </div>
+      <br><br>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row" *ngIf="showlevel">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+      <div style="color: green">
+        Level to watch : {{uLevelWatch | number:'1.0-0'}}
+        <br><br>
+
+        <h4>UC1 : {{uc1 | number:'1.0-0'}}</h4>
+        <!-- <h4>UC2 : {{uc2 | number:'1.0-0'}} </h4>
+        <h4>UC3 : {{uc3 | number:'1.0-0'}} </h4> -->
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div style="color: red">
+        Level to watch : {{lLevelWatch | number:'1.0-0'}}
+        <br><br>
+
+        <h4>LC1 : {{lc1 | number:'1.0-0'}}</h4>
+        <!-- <h4>LC2 : {{lc2 | number:'1.0-0'}}</h4>
+        <h4>LC3 : {{lc3 | number:'1.0-0'}}</h4> -->
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>

@@ -1,21 +1,162 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-tab-group>
 
-<router-outlet></router-outlet>
+  <mat-tab label="Gratitude">
+    <div class="page-header">
+      <div class="row text-center" style="background-color: forestgreen;border-color: forestgreen">
+        <div class="col-sm-3 ">
+
+          <div>
+            <button class="btn btn-primary" style="background-color: forestgreen;border-color: forestgreen" (click)="showListYday()">
+              Yesterady's List
+              <img src="assets/greatful.jpg">
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <br>
+          <br>
+          <h1 style="color:white">Thank you Thank you Thank you</h1>
+          <br>
+          <br>
+          <p style="color:white">Enter ten things you are grateful for today </p>
+          <div class="progress" *ngIf="showToday">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+              [ngStyle]="{'width.%':competionPercentage}">
+              {{ competionPercentage}}% Complete (success)
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+
+          <div>
+            <button class="btn btn-primary" style="background-color: forestgreen;border-color: forestgreen" (click)="showListToday()">Todays's List
+              <img src="assets/greatful.jpg">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+
+      <br>
+
+      <div class="row">
+
+        <div class="col-sm-2" style="float: left">
+
+        </div>
+
+        <div class="col-sm-8" style="float: left">
+
+
+
+          <div class="form-group" *ngIf="showToday">
+            <form class="form-inline">
+              <textarea ngModel name="comments" #comments class="form-control" rows="3" cols="400" id="grateful" placeholder="what are you greatful for ?"
+                (keyup.enter)=addGratitude(comments.value,comments)></textarea>
+            </form>
+          </div>
+
+
+
+          <!-- <div  *ngFor="let g of gList" >
+                    <comment-component [showToday]="showToday" 
+                    [today]="today" [gratitudeComment]="g[0]" [iIndex]="iIndex"
+                    (oIndex)="displayCounter($event)"></comment-component> -->
+
+          <div *ngIf="showToday">
+
+            <comment-component *ngFor="let g of (gList|async)  ;index as i" [commentIndex]="i+1" [gratitudeComment]="g">
+            </comment-component>
+
+            <!-- {{gList|async | json}} -->
+            <!-- <div *ngFor="let g of (gList|async)   ">
+                              {{g['key']  }}
+                              {{g['payload'] }}
+                            <a [routerLink]="['/thanks/',g['key']]">Edit</a>
+                            
+                        </div>    -->
+
+
+          </div>
+
+          <div *ngIf="showYday">
+            <div *ngFor="let g of (gList|async)" class="alert alert-info">
+              {{g.content}} - Thank you.Thank you.Thank you.
+            </div>
+          </div>
+
+          <!-- <app-mat-test></app-mat-test> -->
+
+
+        </div>
+        <div class="col-sm-2" style="float: right">
+
+        </div>
+      </div>
+
+
+    </div>
+    <router-outlet></router-outlet>
+
+  </mat-tab>
+  <mat-tab label="Achievements">
+    <achievements></achievements>
+    <!-- <whishes></whishes> -->
+  </mat-tab>
+  <mat-tab label="Affirmations">
+    <affirmation-main></affirmation-main>
+  </mat-tab>
+  <mat-tab label="Balance">
+   <balance></balance>
+  </mat-tab>
+  <mat-tab label="TradeDecision">
+    <trade-decision></trade-decision>
+  </mat-tab>
+  <mat-tab label="CLimits">
+       <climits></climits>
+    </mat-tab>
+    <mat-tab label="JPlan">
+        <jplan></jplan>
+    </mat-tab>
+    <mat-tab label="Decision">
+        <decision></decision>
+    </mat-tab>
+
+    <mat-tab label="FocusAreas">
+        <focus-areas></focus-areas>
+    </mat-tab>
+    <mat-tab label="Goals">
+        <goals></goals>
+    </mat-tab>
+
+    <mat-tab label="Habits">
+        <habits></habits>
+    </mat-tab>
+
+    <!--
+    <mat-tab label="FocusProjects">
+        <focus-projects></focus-projects>
+    </mat-tab>
+    <mat-tab label="MiniProjects">
+        <mini-projects></mini-projects>
+    </mat-tab>
+
+
+ 
+    <mat-tab label="Wishes">
+        <wishes></wishes>
+    </mat-tab>
+    <mat-tab label="Desires">
+        <desires></desires>
+    </mat-tab>
+    <mat-tab label="Gifts">
+        <gifts></gifts>
+    </mat-tab>
+   
+  -->
+
+ 
+    
+  <mat-tab-group>
